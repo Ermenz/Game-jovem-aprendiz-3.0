@@ -242,21 +242,35 @@ function atualizarTela() {
 function tomarDecisao(escolha) {
   const resultado = document.getElementById("resultado");
   const resp = parseInt(document.getElementById("resp").textContent);
+  const desem = parseInt(document.getElementById("desem").textContent);
+  const com = parseInt(document.getElementById("com").textContent);
+  const pon = parseInt(document.getElementById("pont").textContent); // corrigi aqui para 'pont'
 
   if (escolha === 0) {
-    resultado.textContent = "Você tomou a decisão certa. +10 responsabilidade!";
+    resultado.textContent = "Você tomou a decisão certa. +10 responsabilidade, +5 comunicação, +2 desempenho!";
     document.getElementById("resp").textContent = resp + 10;
+    document.getElementById("com").textContent = com + 5;
+    document.getElementById("desem").textContent = desem + 2;
+    document.getElementById("pont").textContent = pon + 3; // Adicionando um incremento para a pontualidade
   } else if (escolha === 1) {
-    resultado.textContent = "Essa escolha teve consequências negativas. -5 responsabilidade.";
+    resultado.textContent = "Essa escolha teve consequências negativas. -5 responsabilidade, -2 comunicação, -1 desempenho.";
     document.getElementById("resp").textContent = resp - 5;
+    document.getElementById("com").textContent = com - 2;
+    document.getElementById("desem").textContent = desem - 1;
+    document.getElementById("pont").textContent = pon - 1; // Diminuindo pontualidade
   } else if (escolha === 2) {
-    resultado.textContent = "Você tomou a decisão certa. +5 responsabilidade!";
+    resultado.textContent = "Você tomou a decisão certa. +5 responsabilidade, +3 comunicação, +4 desempenho.";
     document.getElementById("resp").textContent = resp + 5;
+    document.getElementById("com").textContent = com + 3;
+    document.getElementById("desem").textContent = desem + 4;
+    document.getElementById("pont").textContent = pon + 2; // Incremento médio de pontualidade
   } else if (escolha === 3) {
-    resultado.textContent = "Essa escolha teve consequências... -10 responsabilidade.";
+    resultado.textContent = "Essa escolha teve consequências... -10 responsabilidade, -4 comunicação, -5 desempenho.";
     document.getElementById("resp").textContent = resp - 10;
+    document.getElementById("com").textContent = com - 4;
+    document.getElementById("desem").textContent = desem - 5;
+    document.getElementById("pont").textContent = pon - 3; // Maior penalização para pontualidade
   }
-
 
   function lançarConfetes() {
     const container = document.getElementById("confetti-container");
