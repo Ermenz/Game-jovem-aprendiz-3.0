@@ -241,76 +241,83 @@ function atualizarTela() {
 
 function tomarDecisao(escolha) {
   const resultado = document.getElementById("resultado");
-  const resp = parseInt(document.getElementById("resp").textContent);
-  const desem = parseInt(document.getElementById("desem").textContent);
-  const com = parseInt(document.getElementById("com").textContent);
-  const pon = parseInt(document.getElementById("pont").textContent); // corrigi aqui para 'pont'
+  let resp = parseInt(document.getElementById("resp").textContent);
+  let desem = parseInt(document.getElementById("desem").textContent);
+  let com = parseInt(document.getElementById("com").textContent);
+  let pon = parseInt(document.getElementById("pont").textContent);
 
   if (escolha === 0) {
     resultado.textContent = "Você tomou a decisão certa. +10 responsabilidade, +5 comunicação, +2 desempenho!";
-    document.getElementById("resp").textContent = resp + 10;
-    document.getElementById("com").textContent = com + 5;
-    document.getElementById("desem").textContent = desem + 2;
-    document.getElementById("pont").textContent = pon + 3; // Adicionando um incremento para a pontualidade
+    resp += 10;
+    com += 5;
+    desem += 2;
+    pon += 3;
   } else if (escolha === 1) {
     resultado.textContent = "Essa escolha teve consequências negativas. -5 responsabilidade, -2 comunicação, -1 desempenho.";
-    document.getElementById("resp").textContent = resp - 5;
-    document.getElementById("com").textContent = com - 2;
-    document.getElementById("desem").textContent = desem - 1;
-    document.getElementById("pont").textContent = pon - 1; // Diminuindo pontualidade
+    resp -= 5;
+    com -= 2;
+    desem -= 1;
+    pon -= 1;
   } else if (escolha === 2) {
     resultado.textContent = "Você tomou a decisão certa. +5 responsabilidade, +3 comunicação, +4 desempenho.";
-    document.getElementById("resp").textContent = resp + 5;
-    document.getElementById("com").textContent = com + 3;
-    document.getElementById("desem").textContent = desem + 4;
-    document.getElementById("pont").textContent = pon + 2; // Incremento médio de pontualidade
+    resp += 5;
+    com += 3;
+    desem += 4;
+    pon += 2;
   } else if (escolha === 3) {
     resultado.textContent = "Essa escolha teve consequências... -10 responsabilidade, -4 comunicação, -5 desempenho.";
-    document.getElementById("resp").textContent = resp - 10;
-    document.getElementById("com").textContent = com - 4;
-    document.getElementById("desem").textContent = desem - 5;
-    document.getElementById("pont").textContent = pon - 3; // Maior penalização para pontualidade
+    resp -= 10;
+    com -= 4;
+    desem -= 5;
+    pon -= 3;
+  }
+
+  // Atualiza os valores na interface
+  document.getElementById("resp").textContent = resp;
+  document.getElementById("com").textContent = com;
+  document.getElementById("desem").textContent = desem;
+  document.getElementById("pont").textContent = pon;
+
+  // Avança para a próxima pergunta
+  perguntaIndex++;
+
+  if (perguntaIndex < perguntasComuns.length + perguntasSetor[setorEscolhido].length) {
+    atualizarTela();
+  } else {
+    if (resp > 50 && desem > 50 && com > 50 && pon > 50) {
+      resultado.textContent = "Parabéns, você foi efetivado, obrigado por jogar!";
+      lançarConfetes();
+    } else {
+      resultado.textContent = "Tente novamente para ser efetivado.";
+    }
+
+    // 🔒 Bloqueia os botões após o fim do jogo
+    document.getElementById("escolha1").disabled = true;
+    document.getElementById("escolha2").disabled = true;
+    document.getElementById("escolha3").disabled = true;
+    document.getElementById("escolha4").disabled = true;
   }
 
   function lançarConfetes() {
     const container = document.getElementById("confetti-container");
-  
+
     function criarConfete() {
       const confetti = document.createElement("div");
       confetti.classList.add("confetti");
-  
+
       const cores = ["#ff0", "#0f0", "#0ff", "#f0f", "#f00", "#00f"];
       confetti.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
       confetti.style.left = Math.random() * 100 + "vw";
       confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
       confetti.style.opacity = Math.random();
-  
+
       container.appendChild(confetti);
-  
-      setTimeout(() => {
-        confetti.remove();
-      }, 4000);
+
+      setTimeout(() => confetti.remove(), 4000);
     }
-  
+
     for (let i = 0; i < 100; i++) {
       setTimeout(criarConfete, i * 50);
     }
-  }
-  
-
-
-
-
-
-
-
-
-  
-  perguntaIndex++;
-  if (perguntaIndex < perguntasComuns.length + perguntasSetor[setorEscolhido].length) {
-    atualizarTela();
-  } else {
-    resultado.textContent = "Parabéns, você completou o desafio. Obrigado por jogar!";
-    lançarConfetes();
   }
 }
