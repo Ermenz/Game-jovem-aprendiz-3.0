@@ -153,3 +153,32 @@ button:hover {
     font-size: 14px;
   }
 }
+
+
+@media (max-width: 480px) {
+  #introScreen img {
+    max-width: 90%;
+    max-height: 60%;
+  }
+
+  .popup {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .escolhas button,
+  #nextBtn {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+    margin: 8px 0;
+  }
+
+  .fase h2 {
+    font-size: 18px;
+  }
+
+  .personagem-info p {
+    font-size: 14px;
+  }
+}
