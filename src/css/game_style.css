@@ -186,3 +186,11 @@ button:hover {
     font-size: 14px;
   }
 }
+
+/* Responsivo para telas menores que 768px */
+@media (max-width: 768px) {
+  /* Estilos para telas menores que 768px (ex: smartphones) */
+  .menu {
+    width: 100%;
+  }
+}
