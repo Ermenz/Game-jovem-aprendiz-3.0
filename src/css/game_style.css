@@ -141,3 +141,106 @@ button:hover {
   color: #444;
 }
 
+#iconeEscolhido {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  border-radius: 50%;
+  border: 3px solid #2d44c9;
+}
+
+#seletorIcones {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1001;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#seletorIcones img {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 3px solid #2d44c9;
+  transition: transform 0.2s;
+}
+
+#seletorIcones img:hover {
+  transform: scale(1.2);
+}
+
+
+#mensagemSelecao {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 10px; /* Distância entre a mensagem e os ícones */
+  color: #2d44c9; /* Cor da mensagem */
+  font-weight: bold;
+}
+
+
+#mensagemFinal {
+  font-size: 36px; /* Aumenta o tamanho da fonte */
+  font-weight: bold;
+  color: #2d44c9; /* Cor do texto */
+  text-align: center;
+  position: fixed;
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta para centralizar perfeitamente */
+  z-index: 1003; /* Garante que a mensagem apareça sobre outros elementos */
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo transparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  width: 80%; /* Ajuste o tamanho conforme necessário */
+}
+
+
+#naoEfetivado {
+  display: none; /* Inicialmente, a mensagem está oculta */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza a mensagem na tela */
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #2d44c9;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1002;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#naoEfetivado p {
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+}
+
+#naoEfetivado button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #2d44c9;
+  color: rgb(46, 28, 28);
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#naoEfetivado button:hover {
+  background-color: #1e3170;
+}

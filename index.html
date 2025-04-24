@@ -32,6 +32,24 @@
     }
   </style>
 </head>
+
+<!-- Ícone escolhido aparece aqui -->
+<img id="iconeEscolhido" style="display: none;" />
+
+<!-- Seletor de ícones -->
+<div id="seletorIcones">
+  <p id="mensagemSelecao">Selecione seu ícone de jogador</p>
+  <img src="/src/img/icon heart.png" alt="Ícone 1" onclick="selecionarIcone(this.src)">
+  <img src="/src/img/icon money.png" alt="Ícone 2" onclick="selecionarIcone(this.src)">
+  <img src="/src/img/icon winner.png" alt="Ícone 3" onclick="selecionarIcone(this.src)">
+  <img src="/src/img/icon sword.png" alt="Ícone 4" onclick="selecionarIcone(this.src)">
+  <img src="/src/img/icon diamond.png" alt="Ícone 5" onclick="selecionarIcone(this.src)">
+  <img src="/src/img/icon bomb.png" alt="Ícone 6" onclick="selecionarIcone(this.src)">
+</div>
+
+
+
+
 <body>
 
 <!-- Adicionando o áudio que começa automaticamente -->
@@ -66,7 +84,7 @@
     <p><strong>Nome:</strong> <span id="nome">Lucas</span></p>
     <p><strong>Setor:</strong> <span id="setorEscolhido">-</span></p>
     <p><strong>Responsabilidade:</strong> <span id="resp">50</span></p>
-    <p><strong>Pontualidade:</strong> <span id="pont">50</span></p>
+    <p><strong>Pontualidade:</strong> <span id="pont">55</span></p>
     <p><strong>Comunicação:</strong> <span id="com">50</span></p>
     <p><strong>Desempenho:</strong> <span id="desem">50</span></p>
   </div>
@@ -94,6 +112,14 @@
     }, 4000);
   });
 </script>
+
+
+<!-- Mensagem Final do Jogador -->
+<p id="mensagemFinal" style="display: none;">Parabéns, você completou a jornada!</p>
+<!-- Mensagem de não efetivado -->
+<p id="naoEfetivado" style="display: none;">Você não foi efetivado dessa vez, mas continue tentando, sempre há mais uma chance, tente novamente!</p>
+
+
 
 <script src="/src/services/game_script.js"></script>
 </body>

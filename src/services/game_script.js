@@ -1,5 +1,5 @@
 const storyParts = [
-  "Era uma vez um jovem chamado {{nome}}...",
+  "Era uma vez uma pessoa chamada {{nome}}...",
   "Que buscava sua primeira oportunidade como Jovem Aprendiz.",
   "Um dia, após muitos processos e entrevistas ele consegue o tão sonhado emprego!",
   "Mas mal sabia que sua jornada tinha acabado de começar...",
@@ -36,8 +36,8 @@ const perguntasComuns = [
     opcoes: [
       "A) Foco totalmente no que precisa ser feito",
       "B) Tento organizar meu tempo o máximo possível",
-      "C) Peço mais tempo para a entrega",
-      "D) Peço ajuda ao time"
+      "C) Peço ajuda ao time",
+      "D) Me organizo mal e não entrego nada"
     ]
   },
   {
@@ -46,7 +46,7 @@ const perguntasComuns = [
       "A) Prefiro trabalhar sozinho para focar melhor",
       "B) Gosto de trabalhar em equipe, trocando ideias",
       "C) Depende da tarefa",
-      "D) Não tenho preferência"
+      "D) Não gosto de trabalhar"
     ]
   },
   {
@@ -64,7 +64,7 @@ const perguntasComuns = [
       "A) Minha comunicação clara e direta",
       "B) Minha capacidade de organização",
       "C) Minha habilidade em resolver problemas rapidamente",
-      "D) Meu trabalho em equipe"
+      "D) Minha habilidade em me comunicar mal"
     ]
   }
 ];
@@ -154,10 +154,10 @@ const perguntasSetor = {
     {
       pergunta: "Como você verifica e organiza relatórios financeiros?",
       opcoes: [
-        "A) Faço tudo sozinho, revisando todos os números",
+        "A) Reviso tudo de forma organizada",
         "B) Peço ajuda a alguém mais experiente",
         "C) Uso ferramentas de software para me ajudar",
-        "D) Delego a tarefa para outra pessoa"
+        "D) Delego a tarefa para outra pessoa sem tentar resolver"
       ]
     },
     {
@@ -247,29 +247,29 @@ function tomarDecisao(escolha) {
   let pon = parseInt(document.getElementById("pont").textContent);
 
   if (escolha === 0) {
-    resultado.textContent = "Você tomou a decisão certa. +10 responsabilidade, +5 comunicação, +2 desempenho!";
+    resultado.textContent = "Você tomou a decisão certa. +10 responsabilidade, +5 comunicação, +2 desempenho,!";
     resp += 10;
     com += 5;
     desem += 2;
-    pon += 3;
+    pon += 0;
   } else if (escolha === 1) {
-    resultado.textContent = "Essa escolha teve consequências negativas. -5 responsabilidade, -2 comunicação, -1 desempenho.";
-    resp -= 5;
-    com -= 2;
-    desem -= 1;
-    pon -= 1;
+    resultado.textContent = "Essa escolha teve consequências negativas. +10 responsabilidade, +2 comunicação, +2 desempenho.";
+    resp += 10;
+    com += 2;
+    desem += 2;
+    pon -= 0;
   } else if (escolha === 2) {
     resultado.textContent = "Você tomou a decisão certa. +5 responsabilidade, +3 comunicação, +4 desempenho.";
     resp += 5;
     com += 3;
     desem += 4;
-    pon += 2;
+    pon += 0;
   } else if (escolha === 3) {
     resultado.textContent = "Essa escolha teve consequências... -10 responsabilidade, -4 comunicação, -5 desempenho.";
     resp -= 10;
     com -= 4;
     desem -= 5;
-    pon -= 3;
+    pon -= 0;
   }
 
   // Atualiza os valores na interface
@@ -285,10 +285,10 @@ function tomarDecisao(escolha) {
     atualizarTela();
   } else {
     if (resp > 50 && desem > 50 && com > 50 && pon > 50) {
-      resultado.textContent = "Parabéns, você foi efetivado, obrigado por jogar!";
       lançarConfetes();
+      mostrarMensagemFinal();
     } else {
-      resultado.textContent = "Tente novamente para ser efetivado.";
+      mostrarMensagemNaoEfetivado();
     }
 
     // 🔒 Bloqueia os botões após o fim do jogo
@@ -321,3 +321,47 @@ function tomarDecisao(escolha) {
     }
   }
 }
+
+
+
+
+function selecionarIcone(src) {
+  const iconeEscolhido = document.getElementById("iconeEscolhido");
+  iconeEscolhido.src = src;
+  iconeEscolhido.style.display = "block";
+  document.getElementById("seletorIcones").style.display = "none";
+}
+
+function selecionarIcone(src) {
+  const iconeEscolhido = document.getElementById("iconeEscolhido");
+  iconeEscolhido.src = src;
+  iconeEscolhido.style.display = "block";
+  document.getElementById("seletorIcones").style.display = "none";
+}
+
+// Mostra os ícones após o setor ser selecionado
+document.getElementById("nextBtn").addEventListener("click", () => {
+  const nome = document.getElementById("nomeJogador").value;
+  const setor = document.getElementById("setorSelect").value;
+
+  if (nome && setor) {
+    document.getElementById("seletorIcones").style.display = "block";
+    
+  }
+});
+
+
+
+// Exemplo de função que mostra a mensagem final
+function mostrarMensagemFinal() {
+  const mensagemFinal = document.getElementById('mensagemFinal');
+  mensagemFinal.style.display = 'block'; // Torna a mensagem visível
+}
+
+
+
+function mostrarMensagemNaoEfetivado() {
+  const naoEfetivadoMensagem = document.getElementById('naoEfetivado');
+  naoEfetivadoMensagem.style.display = 'block';
+}
+
