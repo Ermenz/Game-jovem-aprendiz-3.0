@@ -278,7 +278,7 @@ function tomarDecisao(escolha) {
   document.getElementById("desem").textContent = desem;
   document.getElementById("pont").textContent = pon;
 
-  // Avança para a próxima pergunta
+  // IF para avançara para a próxima pergunta
   perguntaIndex++;
 
   if (perguntaIndex < perguntasComuns.length + perguntasSetor[setorEscolhido].length) {
@@ -291,7 +291,7 @@ function tomarDecisao(escolha) {
       mostrarMensagemNaoEfetivado();
     }
 
-    // 🔒 Bloqueia os botões após o fim do jogo
+    // PARA BLOQUEAR BOTÃO NO FINAL
     document.getElementById("escolha1").disabled = true;
     document.getElementById("escolha2").disabled = true;
     document.getElementById("escolha3").disabled = true;

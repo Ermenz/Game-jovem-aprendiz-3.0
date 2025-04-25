@@ -234,7 +234,7 @@ button:hover {
   background-color: #1e3170;
 }
 
-/* Responsividade */
+/* Responsividade para as telas de diferentes tamanhos*/
 @media (max-width: 768px) {
   .game-container {
     padding: 20px;
