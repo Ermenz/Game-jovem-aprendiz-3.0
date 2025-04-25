@@ -1,7 +1,7 @@
 const storyParts = [
   "Era uma vez uma pessoa chamada {{nome}}...",
   "Que buscava sua primeira oportunidade como Jovem Aprendiz.",
-  "Um dia, após muitos processos e entrevistas ele consegue o tão sonhado emprego!",
+  "Um dia, após muitos processos e entrevistas consegue o tão sonhado emprego!",
   "Mas mal sabia que sua jornada tinha acabado de começar...",
   "Você agora se encontra diante da primeira tarefa. Como você vai se comportar?",
   "Com o tempo, o jovem vai crescendo no ambiente de trabalho, enfrentando os desafios diários...",
@@ -23,7 +23,7 @@ const setorSelect = document.getElementById("setorSelect");
 
 const perguntasComuns = [
   {
-    pergunta: "Seu gerente pede para você realizar uma tarefa que nunca fez antes?",
+    pergunta: "Seu gerente pede para você realizar uma tarefa que nunca fez antes",
     opcoes: [
       "A) Peço ajuda ao gerente",
       "B) Tento resolver sozinho",
